@@ -14,12 +14,14 @@ Die Installation wird in der Kommandozeile ausgeführt.
 Dazu einfach aus dem Startmenü die `Eingabeaufforderung` öffnen.
 
 ```
-wsl --install -d Debian
 wsl --update
+wsl --install -d Debian
 ```
 
 Es ist wichtig sich das Passwort zu merken, welches bei der Installation von WSL angegeben wurde.
-Dieses wird später wieder benötigt.
+
+Nach der Installation startet WSL automatisch.
+Der Befehl `exit` beendet es wieder.
 
 Sollte es Probleme bei der Installation geben, gibt es [hier](https://learn.microsoft.com/de-de/windows/wsl/install) eine genauere Anleitung.
 
@@ -53,7 +55,7 @@ Ein fertiges Skript kann in WSL heruntergeladen und ausgeführt werden.
 Dieser Weg hat den Vorteil, dass zusätzliche Skripte zur Abgabe heruntergeladen werden.
 
 ```
-sudo apt install git
+sudo apt install -y git
 git clone https://github.com/MaxM3001/SPiC-WSL.git ~/SPiC-WSL
 bash ~/SPiC-WSL/install.sh
 ```
@@ -62,13 +64,13 @@ Alternativ können alle Befehle einzeln ausgeführt werden.
 
 ```
 sudo apt update
-sudo apt upgrade
-sudo apt install wget make udev gnupg apt-transport-https usbip hwdata usbutils sshpass
+sudo apt upgrade -y
+sudo apt install -y wget make udev gnupg apt-transport-https usbip hwdata usbutils sshpass
 sudo /lib/systemd/systemd-udevd --daemon
 wget -O - https://i4spic.cs.fau.de//editor/repo.gpg.key | sudo apt-key add -
 echo "deb https://i4spic.cs.fau.de//editor/debian buster main" | sudo tee /etc/apt/sources.list.d/spic.list
 sudo apt update
-sudo apt install spic-editor
+sudo apt install -y spic-editor
 ```
 
 Die Installation ist abgeschlossen, sobald alle Befehle ohne Fehlermeldungen ausgeführt wurden.
