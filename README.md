@@ -104,7 +104,7 @@ Daher ist es nicht möglich Funktionen wie die Abgabe oder das Ansehen der Muste
 
 Wenn die Entwicklungsumgebung mithilfe des Skripts installiert wurde, ist es möglich die Aufgaben auch von Zuhause abzugeben.
 
-Dafür gibt es einige Skripte:
+Dafür gibt es einige Skripte, welche in WSL (`Debian` im Startmenü) ausgeführt werden müssen:
 
 ```
 bash ~/SPiC-WSL/submit.sh $AUFGABE
