@@ -126,7 +126,7 @@ bash ~/SPiC-WSL/get-deadline.sh $AUFGABE
 
 Die Variablen in diesen Befehlen (`$...`) müssen dabei immer durch den konkreten Wert ersetzt werden.
 
-Falls die Installation manuell erfolgte, ist möglich die Skripte einzeln herunterzuladen.
+Falls die Installation manuell erfolgte, ist es möglich die Skripte einzeln herunterzuladen.
 
 ```
 wget https://raw.githubusercontent.com/MaxM3001/SPiC-WSL/main/$SKRIPT -o ~/SPiC-WSL/$SKRIPT
