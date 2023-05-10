@@ -2,15 +2,11 @@
 
 # Ask for task
 read -p "Enter submission to be shown: " task
-
-# Ask for user credentials
-read -p "Enter your Computer Science CIP username: " username
-read -s -p "Enter your Computer Science CIP password: " password
 echo
 
-# Set the name of the directory you want to transfer and the destination path for it
-directory_name="/proj/i4spic/$USER/$task"
-destination_path="/proj/i4spic/$username"
+# Load variable for cip username
+export $(grep -v '^#' ~/.spic_env| xargs)
 
-# Transfer the directory using SCP
-sshpass -p "$password" ssh -t $username@cipterm0.cip.cs.fau.de /proj/i4spic/bin/show-submission $task
+# Run the script on remote server using ssh
+ssh -o LogLevel=quiet -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -t $CS_USER@cipterm0.cip.cs.fau.de /proj/i4spic/bin/show-submission $task
+echo

@@ -60,6 +60,9 @@ git clone https://github.com/MaxM3001/SPiC-WSL.git ~/SPiC-WSL
 bash ~/SPiC-WSL/install.sh
 ```
 
+Um Abgaben zu ermöglichen, generiert der Skript am Ende einen SSH Key und legt diesen im CIP Benutzeraccount an.
+Dafür werden Nutzername und Passwort des Informatik CIP abgefragt.
+
 Alternativ können alle Befehle einzeln ausgeführt werden.
 
 ```
@@ -107,6 +110,13 @@ Wenn die Entwicklungsumgebung mithilfe des Skripts installiert wurde, ist es mö
 Dafür gibt es einige Skripte, welche in WSL (`Debian` im Startmenü) ausgeführt werden müssen:
 
 ```
+bash ~/SPiC-WSL/login.sh
+```
+
+- Ermöglicht das Ausführen der anderen Skripte
+- Sollte nur ausgeführt werden, falls der Login nicht funktioniert oder die Installation manuell erfolgte
+
+```
 bash ~/SPiC-WSL/submit.sh $AUFGABE
 ```
 
@@ -127,7 +137,9 @@ bash ~/SPiC-WSL/get-deadline.sh $AUFGABE
 Die Variablen in diesen Befehlen (`$...`) müssen dabei immer durch den konkreten Wert ersetzt werden.
 
 Falls die Installation manuell erfolgte, ist es möglich die Skripte einzeln herunterzuladen.
+Wichtig ist, dass zuerst `login.sh` heruntergeladen und ausgeführt wird, da dieser die Nutzung der anderen Skripte ermöglicht.
 
 ```
+mkdir ~/SPiC-WSL
 wget https://raw.githubusercontent.com/MaxM3001/SPiC-WSL/main/$SKRIPT -o ~/SPiC-WSL/$SKRIPT
 ```
