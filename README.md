@@ -5,7 +5,7 @@ Anleitung zur Installation der SPiC Entwicklungsumgebung unter Windows
 ## Installation
 
 Die Installation nutzt ungeprüfte Quellen und erfolgt daher auf eigene Gefahr.
-Es werden ungefähr 6 GB Speicherplatz benötigt.
+Es werden ungefähr 5 GB Speicherplatz benötigt.
 
 ### WSL
 
@@ -29,7 +29,7 @@ Sollte es Probleme bei der Installation geben, gibt es [hier](https://learn.micr
 
 Um die Programmierung des SPiC Boards zu ermöglichen, muss die USB Schnittstelle an WSL weitergereicht werden.
 
-Am einfachsten ist dies mittels der grafischen Anwendung WSL USB, welches [hier](https://gitlab.com/alelec/wsl-usb-gui/-/releases) heruntergeladen werden kann.
+Am einfachsten ist dies mittels der grafischen Anwendung WSL USB, welche [hier](https://gitlab.com/alelec/wsl-usb-gui/-/releases) heruntergeladen werden kann.
 Beim Ausführen der `.msi` Datei wird eventuell eine Warnung angezeigt.
 Diese umgeht man über `Weitere Informationen` und `Trotzdem ausführen`.
 
@@ -68,7 +68,7 @@ Alternativ können alle Befehle einzeln ausgeführt werden.
 ```
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y wget make udev gnupg apt-transport-https usbip hwdata usbutils sshpass
+sudo apt install -y wget make udev gnupg apt-transport-https usbip hwdata usbutils
 sudo /lib/systemd/systemd-udevd --daemon
 wget -O - https://i4spic.cs.fau.de//editor/repo.gpg.key | sudo apt-key add -
 echo "deb https://i4spic.cs.fau.de//editor/debian buster main" | sudo tee /etc/apt/sources.list.d/spic.list
@@ -98,48 +98,46 @@ Dieses kann ausgewählt und mittels `Auto-Attach Device`, `Port` automatisch wei
 Um diese Weiterreichung zu nutzen ist es wichtig das `WSL USB` Programm vor der `SPiC IDE` zu starten.
 Für den Simulator ist dieser Schritt nicht notwendig.
 
-## Einschränkungen
+### Einschränkungen
 
 Die lokale Installation ist nicht in das Abgabesystem integriert.
 Daher ist es nicht möglich Funktionen wie die Abgabe oder das Ansehen der Musterlösung in der IDE zu nutzen.
 
-## Abgaben
+### Abgaben
 
 Wenn die Entwicklungsumgebung mithilfe des Skripts installiert wurde, ist es möglich die Aufgaben auch von Zuhause abzugeben.
 
-Dafür gibt es einige Skripte, welche in WSL (`Debian` im Startmenü) ausgeführt werden müssen:
+Dafür gibt es einige Skripte, welche in WSL (`Debian` im Startmenü) ausführbar sind:
 
 ```
-bash ~/SPiC-WSL/login.sh
-```
-
-- Ermöglicht das Ausführen der anderen Skripte
-- Sollte nur ausgeführt werden, falls der Login nicht funktioniert oder die Installation manuell erfolgte
-
-```
-bash ~/SPiC-WSL/submit.sh $AUFGABE
+bash ~/SPiC-WSL/submit.sh
 ```
 
 - Gibt die angegebene Aufgabe ab
 
 ```
-bash ~/SPiC-WSL/show-submission.sh $AUFGABE
+bash ~/SPiC-WSL/show-submission.sh
 ```
 
 - Zeigt die angegebene Abgabe an
 
 ```
-bash ~/SPiC-WSL/get-deadline.sh $AUFGABE
+bash ~/SPiC-WSL/get-deadline.sh
 ```
 
 - Zeigt den Abgabetermin der angegebenen Aufgabe an
 
-Die Variablen in diesen Befehlen (`$...`) müssen dabei immer durch den konkreten Wert ersetzt werden.
-
-Falls die Installation manuell erfolgte, ist es möglich die Skripte einzeln herunterzuladen.
-Wichtig ist, dass zuerst `login.sh` heruntergeladen und ausgeführt wird, da dieser die Nutzung der anderen Skripte ermöglicht.
+Falls die Installation manuell erfolgte, muss zuerst der `login.sh` Skript heruntergeladen und ausgeführt werden.
 
 ```
 mkdir ~/SPiC-WSL
+wget https://raw.githubusercontent.com/MaxM3001/SPiC-WSL/main/login.sh -o ~/SPiC-WSL/login.sh
+bash ~/SPiC-WSL/login.sh
+````
+
+Der folgende Befehl lädt weitere Skripte einzeln herrunter.
+Dabei ist es wichtig `$SKRIPT` durch den Name des Skripts zu ersetzen.
+
+```
 wget https://raw.githubusercontent.com/MaxM3001/SPiC-WSL/main/$SKRIPT -o ~/SPiC-WSL/$SKRIPT
 ```
