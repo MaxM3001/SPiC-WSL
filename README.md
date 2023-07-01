@@ -68,7 +68,7 @@ Alternativ können alle Befehle einzeln ausgeführt werden.
 ```
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y wget make udev gnupg apt-transport-https usbip hwdata usbutils
+sudo apt install -y wget build-essential man-db udev gnupg apt-transport-https usbip hwdata usbutils
 sudo /lib/systemd/systemd-udevd --daemon
 wget -O - https://i4spic.cs.fau.de//editor/repo.gpg.key | sudo apt-key add -
 echo "deb https://i4spic.cs.fau.de//editor/debian buster main" | sudo tee /etc/apt/sources.list.d/spic.list
@@ -80,13 +80,13 @@ Die Installation ist abgeschlossen, sobald alle Befehle ohne Fehlermeldungen aus
 
 ## Benutzung
 
-### Start der IDE
+### IDE
 
 Die Installation sollte eine Verknüpfung im Startmenü erstellt haben, wo die `SPiC IDE` im Ordner `Debian` zu finden ist.
 
 Der Simulator kann wie gewohnt aus der IDE gestartet werden.
 
-### Flashen des SPiC Boards
+### SPiC Board
 
 Um ein SPiCBoard zu flashen muss zuerst die `WSL USB` Anwendung gestartet werden.
 Es ist sinnvoll sich die angezeigten USB Geräte zu merken.
