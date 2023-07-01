@@ -56,7 +56,7 @@ Dieser Weg hat den Vorteil, dass zusätzliche Skripte zur Abgabe heruntergeladen
 
 ```
 sudo apt install -y git
-git clone https://github.com/MaxM3001/SPiC-WSL.git ~/SPiC-WSL
+git clone https://github.com/mxxmxn/SPiC-WSL.git ~/SPiC-WSL
 bash ~/SPiC-WSL/install.sh
 ```
 
@@ -131,7 +131,7 @@ Falls die Installation manuell erfolgte, muss zuerst der `login.sh` Skript herun
 
 ```
 mkdir ~/SPiC-WSL
-wget https://raw.githubusercontent.com/MaxM3001/SPiC-WSL/main/login.sh -o ~/SPiC-WSL/login.sh
+wget https://raw.githubusercontent.com/mxxmxn/SPiC-WSL/main/login.sh -o ~/SPiC-WSL/login.sh
 bash ~/SPiC-WSL/login.sh
 ````
 
@@ -139,5 +139,5 @@ Der folgende Befehl lädt weitere Skripte einzeln herrunter.
 Dabei ist es wichtig `$SKRIPT` durch den Name des Skripts zu ersetzen.
 
 ```
-wget https://raw.githubusercontent.com/MaxM3001/SPiC-WSL/main/$SKRIPT -o ~/SPiC-WSL/$SKRIPT
+wget https://raw.githubusercontent.com/mxxmxn/SPiC-WSL/main/$SKRIPT -o ~/SPiC-WSL/$SKRIPT
 ```
