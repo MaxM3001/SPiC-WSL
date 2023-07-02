@@ -10,20 +10,23 @@ Es werden ungefähr 5 GB Speicherplatz benötigt.
 ### WSL
 
 Das Windows Subsystem für Linux ist die Basis dieser Anleitung.
-Die Installation wird in der Kommandozeile ausgeführt.
-Dazu einfach aus dem Startmenü die `Eingabeaufforderung` öffnen.
+Das entsprechende `Debian` Progamm kann aus dem `Microsoft Store` installiert werden.
 
+Alternativ ist die Installation auch über die `Eingabeaufforderung` möglich.
 ```
-wsl --update
 wsl --install -d Debian
 ```
 
-Es ist wichtig sich das Passwort zu merken, welches bei der Installation von WSL angegeben wurde.
-
-Nach der Installation startet WSL automatisch.
-Der Befehl `exit` beendet es wieder.
-
 Sollte es Probleme bei der Installation geben, gibt es [hier](https://learn.microsoft.com/de-de/windows/wsl/install) eine genauere Anleitung.
+Es tritt zum Beispiel eine Fehlermeldung auf, wenn die Virtualisierung deaktiviert ist.
+Im BIOS kann diese Option aktiviert werden, was jedoch nur für erfahrene Nutzer zu empfehlen ist.
+
+`Debian` kann nun aus dem Startmenü geöffnet werden.
+
+Beim ersten Start des Programms sollte es eine Aufforderung zum Festlegen eines Nuternamens und Passworts geben.
+Erscheint diese Aufforderung nicht, muss `Debian` nochmals deinstalliert oder manuell ein neuer Nutzer angelegt werden.
+
+Generell sollte man keine Befehle als `root` Nutzer ausführen.
 
 ### WSL USB
 
@@ -47,14 +50,15 @@ Hinweise zur Nutzung dieses Tools gibt es [hier](https://learn.microsoft.com/de-
 Zuletzt wird die Entwicklungsumgebung in WSL installiert.
 
 Dazu einfach aus dem Startmenü `Debian` öffnen.
-Die Installation fragt wahrscheinlich das Passwort ab, welches bei der Installation von WSL festgelegt wurde.
 
 Ab diesem Punkt gibt es zwei Varianten der weiteren Installation:
 
 Ein fertiges Skript kann in WSL heruntergeladen und ausgeführt werden.
 Dieser Weg hat den Vorteil, dass zusätzliche Skripte zur Abgabe heruntergeladen werden.
+Die Installation fragt wahrscheinlich das Passwort ab, welches bei der Installation von WSL festgelegt wurde.
 
 ```
+sudo apt update
 sudo apt install -y git
 git clone https://github.com/mxxmxn/SPiC-WSL.git ~/SPiC-WSL
 bash ~/SPiC-WSL/install.sh
@@ -64,6 +68,7 @@ Um Abgaben zu ermöglichen, generiert der Skript am Ende einen SSH Key und legt 
 Dafür werden Nutzername und Passwort des Informatik CIP abgefragt.
 
 Alternativ können alle Befehle einzeln ausgeführt werden.
+Auch hier ist wahrscheinlich die Eingabe des Passworts nötig.
 
 ```
 sudo apt update
